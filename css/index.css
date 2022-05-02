@@ -2,3 +2,7 @@
     background-color: #333333;
     color: azure;
 }
+
+body.table.th.main-content {
+    background-color: aqua;
+}

@@ -6,3 +6,13 @@
 body.table.th.main-content {
     background-color: aqua;
 }
+
+footer {
+    background-color: lightcoral;
+    text-align: center;
+};
+
+.nav-item2 {
+    color: blue;
+    text-decoration: underline;
+};

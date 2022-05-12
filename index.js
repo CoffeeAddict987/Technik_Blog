@@ -5,6 +5,9 @@ $(() => {
     const navigation = new Navigation(navigatePage);
     navigation.render('#navigation');
 
+    const footer = new Footer();
+    footer.render('#my-footer');
+
 
     const feedbackBanner = $('.feedback-banner');
     const modal = new Modal('body');

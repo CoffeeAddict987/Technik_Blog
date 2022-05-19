@@ -12,7 +12,7 @@
 }
 
 .navigation-container a:hover {
-    background-color: #f1f1f1;
+    background-color: white;
     color: #333;
 }
 
@@ -26,6 +26,7 @@
 
 .navigation-container a.active {
     border-bottom: 3px solid green;
+    background-color: lightgreen;
 }
 
 /* Hintergrundfarbe der Navigation ändern (Stimmig zu .dropbtn)*/
@@ -47,7 +48,7 @@
   .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f1f1f1;
+    background-color: white;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
@@ -67,7 +68,7 @@
 .nav-second{
     list-style: none;
     width: 100%;
-    background-color: grey;
+    background-color: lightcoral;
 }
 .nav-search{
     text-align: right;
@@ -81,7 +82,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 /* Button used to open the contact form - fixed at the bottom of the page */
 .open-button {
-  background-color: #555;
+  background-color: #04AA6D;
   color: white;
   padding: 16px 20px;
   border: none;
@@ -121,7 +122,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 /* When the inputs get focus, do something */
 .form-container input[type=text]:focus, .form-container input[type=password]:focus {
-  background-color: #ddd;
+  background-color: white;
   outline: none;
 }
 
@@ -145,4 +146,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
 /* Add some hover effects to buttons */
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
+}
+
+.topnav-color{
+  background-color: white;
 }

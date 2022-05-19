@@ -1,1 +1,7 @@
 This is for notes in the developement process
+
+Zusätzliche Ideen:
+- Vorschau für die Artikel um Datenaufkommen zu vermindern
+- Tags für Artikel können als Interessen des Nutzers angegeben werden
+- Vorgeschlagene Artikel werden zufällig ausgewählt (und als Businessmodell kann man sich da einen Vorteil erkaufen)
+---- Gerne mehr Ideen hier rein schreiben ----

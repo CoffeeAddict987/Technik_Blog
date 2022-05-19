@@ -1,0 +1,88 @@
+<div class="">
+    <div class="container-fluid topnav-color">
+      <a class="nav-pic" href="#">
+        <img src="../data/img_navbar/robot.png" alt="Avatar Logo" style="width:5%;" class="rounded-pill"> 
+      </a>
+      <img src="../data/img_navbar/Tech_Blog_logov3.png" alt="Avatar Logo" class="nav-img">
+    </div>
+    <div class="nav-backg ">   
+      <ul class="nav justify-content-center">
+        <li class="nav-item">
+          <div class="dropdown navigation-container"> 
+            <a  id="home"> Home </a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div class="dropdown navigation-container"> 
+            <a  id="lectureContent"> Blog </a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <div class="dropdown navigation-container">
+            <a  id="databaseContent">Computer</a>
+            <div class="dropdown-content">
+              <a href="#">Gaming PC</a>
+              <a href="#">Hardware</a>
+              <a href="#">Laptop</a>
+            </div>
+          </div>              
+        </li>
+        <li class="nav-item dropdown">
+          <div class="dropdown navigation-container"> 
+            <a id="druckerContent"> Drucker</a>
+            <div class="dropdown-content">
+              <a href="#">Laserdrucker</a>
+              <a href="#">Multifunktionsdrucker</a>
+              <a href="#">Tintenstrahldrucker</a>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div class="dropdown navigation-container"> 
+            <a> Fernseher </a>
+            <div class="dropdown-content">
+              <a href="#"> LCD-TV</a>
+              <a href="#"> LED-TV</a>
+              <a href="#"> OLED-TV</a>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div class="dropdown navigation-container"> 
+            <a> Smartphones </a>
+          </div>
+        </li>
+        <li>
+          <div class="dropdown navigation-container"> 
+            <a id="login-bt" onclick ="openForm()"> Login </a>
+            <div class="form-popup" id="myForm">
+              <form  class="form-container" id="form">
+                 <div class="x-container">
+                   <button type="button" class="btn2" onclick="closeForm()">X</button> 
+                  </div>
+                <div class="form-image"> <img src="..\data\img_navbar\robot.png" alt="Avatar Logo" style="width:20%;"> </div>
+                <h1 class="form-login">Welcome</h1>
+            
+                <label action="/action_page.php" for="email"><b>Email</b></label>
+                <input type="text" placeholder="Enter Email" name="email" required>
+            
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+            
+                <button type="submit" class="btn">Login</button>
+              </form>
+            </div>
+          </div>
+        </li>
+      </ul>
+      </div>
+      <div>
+        <ul class="nav-second">
+          <li>
+            <div class="nav-search"> 
+              <input type="search" id="suche" placeholder="Suche...">
+            </div>
+          </li>
+        </ul>
+      </div>
+      </div>

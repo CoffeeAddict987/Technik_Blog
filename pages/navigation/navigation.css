@@ -1,0 +1,172 @@
+.navigation-container {
+    background-color: lightgreen;
+    position: sticky;
+    top: 0;
+}
+
+.topnav-color{
+  background-color: white;
+}
+
+.navigation-container a {
+    color: black;
+    text-decoration: none;
+    padding: 14px 16px;
+    cursor: pointer;
+}
+
+.navigation-container a:hover {
+    background-color: white;
+    color: #333;
+}
+
+.navigation-container a {
+    display: block;
+}
+
+.navigation-container {
+    display: flex;
+}
+
+.navigation-container a.active {
+    border-bottom: 3px solid green;
+    background-color: lightgreen;
+}
+
+/* Hintergrundfarbe der Navigation ändern (Stimmig zu .dropbtn)*/
+.nav-backg {
+    background-color: lightgreen;
+}
+/* Rechtes Logo CSS-Daten*/
+.nav-img{
+    width: 15%;
+    height: 15%;
+    float: right;
+}
+/* Hier alles für Nav-Dropdown */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #ddd;}
+  .dropdown:hover .dropdown-content {display: block;}
+  /* Ende CSS Nav-Dropdown*/
+  
+/* CSS für Nav-Suchleiste */
+.nav-second{
+    list-style: none;
+    width: 100%;
+    background-color: lightcoral;
+}
+.nav-search{
+    text-align: right;
+    list-style: none; 
+    padding-right: 5%;
+}
+
+/* Navigation Login-Button */
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+  background-color: green;
+  color: black;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 400px;
+  height: 500px;
+  padding: 10px;
+  background-color: white;
+}
+
+.form-login{
+  text-align: center;
+}
+
+.form-image{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: white;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.x-container{
+  margin-right: 5%;
+  float: right;
+}
+
+.form-container .btn2 {
+  background-color: red;
+  position: absolute;
+  color: white;
+
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}

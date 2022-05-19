@@ -1,11 +1,12 @@
-class Navigation {
+class Navigation extends Page {
     onClickCallback;
     constructor(onClick) {
+        super('navigation');
         this.onClickCallback = onClick;
     }
 
     render(parentSelector) {
-        $(parentSelector).load('./components/navigation/navigation.html', () => {
+        $(parentSelector).load('./pages/navigation/navigation.html', () => {
             $('.navigation-container a').on('click', (e) => {
                 this.navigateTo(e.target.id);
                 if (this.onClickCallback)

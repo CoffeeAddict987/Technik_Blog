@@ -1,3 +1,32 @@
+$(() => {
+    registerPages();
+
+    const navigation = new Navigation(navigatePage);
+    navigation.render('#navigation');
+
+    const footer = new Footer();
+    footer.render('#my-footer');
+
+});
+
+function navigatePage(id) {
+    console.log('navigate to page', id);
+    const pages = {
+        home: new Home(),
+        lectureContent: new LectureContent(),
+        databaseContent: new DatabaseContent(),
+        druckerContent: new DruckerContent(),
+    };
+    pages[id].render('#content');
+}
+
+function registerPages() {
+    const pages = ['home', 'lectureContent', 'databaseContent', 'druckerContent','footer','navigation'];
+    const links = pages.map((c) => $(`<script src="pages/${c}/${c}.js"></script>`));
+    const stylesheets = pages.map((c) => $(`<link rel="stylesheet" href="pages/${c}/${c}.css">`));
+    $('head').prepend(links, stylesheets);
+}
+
 const getDatabaseContent = () => {
     const content = [];
     for(let i = 0; i < 15; i++) {

@@ -1,10 +1,11 @@
-class Footer {
+class Footer extends Page{
     constructor() {
-    
+        super('footer');
     }
-    render(parentSelector) {
+/*      Alter Codeblock. Bitte um review
+        render(parentSelector) {
         $(parentSelector).load('./pages/footer/footer.html', () => {
            
         });
-    }
+    } */
 }

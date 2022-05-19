@@ -1,22 +1,40 @@
 body {
-  background-color: #f1f1f1;
-  margin: 0;
+    background-color: #f1f1f1;
+    margin: 0;
 }
 
 .header-container {
-  text-align: center;
+    text-align: center;
 }
 
 .footer-container {
-  margin: 0;
-  text-align: right;
-  background-color: #333;
-  color: #ffffff;
-  padding: 10px;
-  position: sticky;
-  bottom: 0;
+    margin: 0;
+    text-align: right;
+    background-color: #333;
+    color: #ffffff;
+    padding: 10px;
+    position: sticky;
+    bottom: 0;
 }
 
 #content {
-  margin: 10px;
+    margin: 10px;
 }
+
+
+/* Feedback-Banner wird entfernt 
+.feedback-banner {
+    position: fixed;
+    top: calc(50% - 50px);
+    background-color: #333;
+    color: #ffffff;
+
+    writing-mode: vertical-lr;
+    font-size: larger;
+    height: 100px;
+    text-align: center;
+
+    cursor: pointer;
+    z-index: 1;
+}
+*/

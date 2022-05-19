@@ -1,6 +1,7 @@
-class Navigation {
+class Navigation extends Page {
     onClickCallback;
     constructor(onClick) {
+        super('navigation');
         this.onClickCallback = onClick;
     }
 
@@ -47,3 +48,4 @@ function openForm() {
         console.log(formData);
     })
 });
+

@@ -1,0 +1,1 @@
+Das ist die erste halbwegs funktionierende Version der Website. Es fehlt zwar noch das gesamte Backend und viele Bugs sind noch drin, aber es kommt langsam was zusammen.

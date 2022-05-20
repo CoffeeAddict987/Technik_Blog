@@ -69,15 +69,19 @@
   /* Ende CSS Nav-Dropdown*/
   
 /* CSS für Nav-Suchleiste */
-.nav-second{
-    list-style: none;
-    width: 100%;
-    background-color: green;
+#nav-second{
+  list-style: none;
+  width: 100%;
+  background-color: green;
 }
-.nav-search{
-    text-align: right;
-    list-style: none; 
-    padding-right: 5%;
+
+#suche{
+  text-align: right;
+}
+.uhrzeit{
+  text-align: left;
+  text-decoration: none;
+  color: white;
 }
 
 /* Navigation Login-Button */
@@ -115,9 +119,13 @@ body {font-family: Arial, Helvetica, sans-serif;}
   background-color: lightgreen;
 
 }
-
-.form-login{
-  text-align: center;
+.nav-table-element{
+  width: 85%;
+  padding-left: 5%;
+  color: white;
+}
+#suche{
+  text-align: left;
 }
 
 .form-image{
@@ -165,6 +173,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   color: white;
 
 }
+
 
 
 

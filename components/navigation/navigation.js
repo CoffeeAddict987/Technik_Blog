@@ -23,8 +23,10 @@ class Navigation {
     }
 }
 
+
 window.onload = function(){
     document.getElementById("myForm").style.display = "none";
+
 }
 
 function openForm() {
@@ -34,6 +36,11 @@ function openForm() {
   function closeForm() {
     document.getElementById("myForm").style.display = "none";
   }
+
+document.addEventListener("DOMContentLoaded", function () {
+    berechne();
+});
+
 
   $(() => {
     const form = $('#form');
@@ -48,3 +55,19 @@ function openForm() {
     })
 });
 
+
+/* JavaScript für Datum und Zeit */
+setInterval(myTimer, 1000);
+		
+function myTimer() {
+  const d = new Date();
+  document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+  year = d.getFullYear(),
+  month = d.toLocaleString('default', { month: 'long'}),
+  day = d.getDate(),
+  text = + day + '. ' + month + ' ' + year + ' |';
+  document.getElementById('ausgabe')
+  .innerHTML = text;
+}
+
+/* ---------------------------------- */

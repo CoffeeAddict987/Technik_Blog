@@ -46,3 +46,7 @@ function registerPages() {
     const stylesheets = pages.map((c) => $(`<link rel="stylesheet" href="pages/${c}/${c}.css">`));
     $('head').prepend(links, stylesheets);
 }
+
+
+
+

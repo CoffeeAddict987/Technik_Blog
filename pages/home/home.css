@@ -23,11 +23,14 @@ max-width: 100%;
 
 #title{
   font-size: 200%;
-
-
   margin: 10%;
   margin-bottom: 20px;
 }
+
+#author{
+  font-style: italic;
+}
+
 
 td{
   border-collapse: collapse;
@@ -46,13 +49,13 @@ margin: auto;
 .prev, .next {
 cursor: pointer;
 position: absolute;
-top: 40%;
+top: 42%;
 width: auto;
 padding: 16px;
 margin-top: -22px;
-color: red;
+color: green;
 font-weight: bold;
-font-size: 50px;
+font-size: 40px;
 transition: 0.6s ease;
 border-radius: 0 3px 3px 0;
 user-select: none;
@@ -97,3 +100,4 @@ to {opacity: 1}
 @media only screen and (max-width: 300px) {
 .prev, .next,.text {font-size: 11px}
 }
+

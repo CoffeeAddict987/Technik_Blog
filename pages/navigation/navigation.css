@@ -1,3 +1,4 @@
+/*Haupt css für Navigationsleisten*/
 .navigation-container {
     background-color: lightgreen;
     position: sticky;
@@ -43,7 +44,8 @@
     height: 15%;
     float: right;
 }
-/* Hier alles für Nav-Dropdown */
+/* ------- Ende Haupt css */
+/* Hier alles für Nav-Dropdown Elemente */
   .dropdown {
     position: relative;
     display: inline-block;
@@ -66,9 +68,9 @@
   
   .dropdown-content a:hover {background-color: #ddd;}
   .dropdown:hover .dropdown-content {display: block;}
-  /* Ende CSS Nav-Dropdown*/
+  /*--------- Ende CSS Nav-Dropdown*/
   
-/* CSS für Nav-Suchleiste */
+/* Uhrzeit, Suche*/
 #nav-second{
   list-style: none;
   width: 100%;
@@ -92,7 +94,8 @@
   text-decoration: none;
   color: white;
 }
-/* Navigation Login-Button */
+/*-------- Ende Uhrzeit, Suche*/
+/* Navigation Form*/
 body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box;}
 
@@ -182,5 +185,5 @@ body {font-family: Arial, Helvetica, sans-serif;}
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
 }
-
+/*---------- Ende Form*/
 

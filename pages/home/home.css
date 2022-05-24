@@ -87,7 +87,7 @@ text-align: center;
 /* Fading animation */
 .my-fade {
 animation-name: my-fade;
-animation-duration: 1.5s;
+animation-duration: 2s;
 }
 
 @keyframes my-fade {

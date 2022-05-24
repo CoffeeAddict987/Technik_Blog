@@ -100,3 +100,21 @@ to {opacity: 1}
 @media only screen and (max-width: 300px) {
 .prev, .next,.text {font-size: 11px}
 }
+
+/* Textboxen für Blog Einträge*/
+.bg-info2{
+  background-color: lightgreen;
+  text-align: right;
+}
+.blog-element{
+  border: solid 2px;
+}
+
+.blog-element-picture{
+  width: 100%;
+}
+.blog-element-text{
+  width: auto;
+}
+
+/*---------- Ende Textboxen für Blog Einträge */

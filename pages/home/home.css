@@ -102,17 +102,12 @@ to {opacity: 1}
 }
 
 /* Textboxen für Blog Einträge*/
-.bg-info2{
-  background-color: lightgreen;
-  text-align: right;
-}
 .blog-element{
-  border: solid black 2px;
+  border: solid black 1px;
 }
 
 .blog-element-picture{
   width:100%;
-  border: solid white 2px;
 }
 .blog-element-text{
   text-align: center;

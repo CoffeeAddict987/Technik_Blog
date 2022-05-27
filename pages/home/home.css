@@ -107,14 +107,15 @@ to {opacity: 1}
   text-align: right;
 }
 .blog-element{
-  border: solid 2px;
+  border: solid black 2px;
 }
 
 .blog-element-picture{
-  width: 100%;
+  width:100%;
+  border: solid white 2px;
 }
 .blog-element-text{
-  width: auto;
+  text-align: center;
 }
 
 /*---------- Ende Textboxen für Blog Einträge */

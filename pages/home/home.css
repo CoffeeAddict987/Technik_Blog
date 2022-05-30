@@ -112,5 +112,9 @@ to {opacity: 1}
 .blog-element-text{
   text-align: center;
 }
+.blogtitel-table{
+  font-size: 30px;
+  border: 1px solid;
+}
 
 /*---------- Ende Textboxen für Blog Einträge */

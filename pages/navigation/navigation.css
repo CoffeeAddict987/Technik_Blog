@@ -29,10 +29,7 @@
     display: flex;
 }
 
-.navigation-container a.active {
-    border-bottom: 3px solid green;
-    background-color: lightgreen;
-}
+
 
 /* Hintergrundfarbe der Navigation ändern (Stimmig zu .dropbtn)*/
 .nav-backg {

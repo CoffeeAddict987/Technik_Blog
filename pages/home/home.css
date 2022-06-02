@@ -118,3 +118,10 @@ to {opacity: 1}
 }
 
 /*---------- Ende Textboxen für Blog Einträge */
+.side-nav {
+  border: 2px solid;
+}
+.btn-style {
+  margin-top: 3%;
+  min-width: 20%;
+}

@@ -2,16 +2,16 @@
 class DatabaseContentService
 {
     private $database;
+    private $table;
 
-    public function __construct(PDO $database)
-    {
+    public function __construct(PDO $database) {
         $this->database = $database;
+        $this->table = 'articles';
     }
 
-    public function isExisting($id)
-    {
+    public function isExisting($id) {
         // check if body already exists
-        $selectQuery = 'SELECT COUNT(id) from database_content WHERE id = ' . $id;
+        $selectQuery = 'SELECT COUNT(id) from '.$this->table.' WHERE id = ' . $id;
         $statement = $this->database->prepare($selectQuery);
         $statement->execute();
         $data = $statement->fetchAll();
@@ -20,18 +20,25 @@ class DatabaseContentService
         return $existing;
     }
 
-    public function getAll()
-    {
-        $query = 'SELECT * FROM database_content';
+    public function amountOf() {
+              $selectQuery = 'SELECT COUNT(id) from '.$this->table;
+              $statement = $this->database->prepare($selectQuery);
+              $statement->execute();
+              $data = $statement->fetchAll();
+              return $data[0][0];
+    }
+
+    public function getByInterest($interestTags) {
+        $strInterestTags = implode("','", $interestTags);
+        $query = 'SELECT * FROM '. $this->table .' WHERE tag = '. $strInterestTags;
         $statement = $this->database->prepare($query);
         $statement->execute();
         $data = $statement->fetchAll(PDO::FETCH_ASSOC);
         return $data;
     }
 
-    public function getById($id)
-    {
-        $query = 'SELECT * FROM database_content WHERE id = ' . $id;
+    public function getById($id) {
+        $query = 'SELECT * FROM '.$this->table.' WHERE id = ' . $id;
         $statement = $this->database->prepare($query);
         $statement->execute();
         $data = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -41,21 +48,19 @@ class DatabaseContentService
         return $result;
     }
 
-    public function deleteById($id)
-    {
-        $deleteQuery = 'DELETE FROM database_content WHERE id =' . $id;
+    public function deleteById($id) {
+        $deleteQuery = 'DELETE FROM '.$this->table.' WHERE id =' . $id;
         $statement = $this->database->prepare($deleteQuery);
         $statement->execute();
     }
 
-    public function update($updatedEntity)
-    {
+    public function update($updatedEntity) {
         $id = $updatedEntity['id'];
         $text = $updatedEntity['text'];
         $title = $updatedEntity['title'];
 
         // $updateQuery = 'UPDATE database_content SET title="' . $title . '", text= "' . $text . '" WHERE id=' . $id;
-        $updateQuery = 'UPDATE database_content SET title=:title, text=:text WHERE id=:id';        
+        $updateQuery = 'UPDATE '.$this->table.' SET title=:title, text=:text WHERE id=:id';        
         $statement = $this->database->prepare($updateQuery);
         $statement->bindParam(':id', $id);
         $statement->bindParam(':title', $title);
@@ -63,13 +68,12 @@ class DatabaseContentService
         $statement->execute();
     }
 
-    public function add($newEntity)
-    {
+    public function add($newEntity) {
         $id = $newEntity['id'];
         $text = $newEntity['text'];
         $title = $newEntity['title'];
 
-        $insertQuery = 'INSERT INTO database_content (id, title, text) VALUES (' . $id . ', "' . $title . '", "' . $text . '" )';
+        $insertQuery = 'INSERT INTO '.$this->table.' (id, title, text) VALUES (' . $id . ', "' . $title . '", "' . $text . '" )';
         $statement = $this->database->prepare($insertQuery);
         $statement->execute();
     }

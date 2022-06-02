@@ -1,4 +1,6 @@
 <?php
+/* Diese Klasse übernimmt die Contents:
+Get: Get articles (mit id/ohne id -> dann mit Menge und/oder Parametern) */
 require_once(__DIR__ . './../services/databaseContentService.php');
 require_once(__DIR__ . './endpoint.php');
 
@@ -9,19 +11,23 @@ class DatabaseContentEndpoint extends Endpoint
         parent::__construct();
         $this->databaseContentService = new DatabaseContentService($this->database);
     }
-
+    //Get: By Id -> Single Content / Leere Id -> Parameter & Menge beachten
     protected function get() {
         $result = null;
         $id = $this->getQueryParameter('id');
-        if ($id= null) {
+        $interestTags = $this->getQueryParameter('tags');
+        $quantity = $this->getQueryParameter('quantity');
+        if ($id != null) {
             $result = $this->databaseContentService->getById($id);
             if ($result == null) {
                 // set 404 - Not Found
                 $this->notFound();
                 return;
             }
-        } else {
-            $result = $this->databaseContentService->getAll();
+        } elseif ($interestTags != null && $quantity == null) {
+            $result = $this->databaseContentService->getByInterest($interestTags);
+        } elseif ($interestTags != null) {
+            $i = $this->databaseContentService->amountOf();
         }
         $this->ok($result);
     }

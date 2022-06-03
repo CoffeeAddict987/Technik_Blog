@@ -93,40 +93,21 @@
   color: white;
 }
 /*-------- Ende Uhrzeit, Suche*/
+
+
 /* Navigation Form*/
-body {font-family: Arial, Helvetica, sans-serif;}
-* {box-sizing: border-box;}
-
-/* Button used to open the contact form - fixed at the bottom of the page */
-.open-button {
-  background-color: green;
-  color: black;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  opacity: 0.8;
-  position: fixed;
-  bottom: 23px;
-  right: 28px;
-  width: 280px;
-}
-
-/* The popup form - hidden by default */
-.form-popup {
+/* Add styles to the form container */
+.form-container {
+  max-width: 25%;
+  max-height: 75%;
+  right: 0%;
   display: none;
   position: fixed;
   bottom: 0;
-  right: 15px;
-  border: 3px solid #f1f1f1;
+  border: 3px solid black;
   z-index: 9;
-}
-
-/* Add styles to the form container */
-.form-container {
-  max-width: 400px;
-  padding: 10px;
-  background-color: lightgreen;
-
+  padding: 15px;
+  background-color: lightgray;
 }
 
 .form-login{
@@ -142,6 +123,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 /* Full-width input fields */
 .form-container input[type=text], .form-container input[type=password] {
   width: 100%;
+  min-width: 40%;
   padding: 15px;
   margin: 5px 0 22px 0;
   border: none;
@@ -176,7 +158,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
   background-color: red;
   position: absolute;
   color: white;
-
 }
 
 /* Add some hover effects to buttons */

@@ -24,18 +24,29 @@ class Navigation extends Page {
     }
 }
 
+/* Pop-Up Forms Javascript*/
 window.onload = function(){
-    document.getElementById("myForm").style.display = "none";
+    document.getElementById("myLoginForm").style.display = "none";
+    document.getElementById("myRegForm").style.display = "none";
 }
 
-function openForm() {
-    document.getElementById("myForm").style.display = "block";
+function openLoginForm() {
+    document.getElementById("myLoginForm").style.display = "block";
   }
   
-  function closeForm() {
-    document.getElementById("myForm").style.display = "none";
+  function closeLoginForm() {
+    document.getElementById("myLoginForm").style.display = "none";
   }
 
+  function openRegForm() {
+    document.getElementById("myRegForm").style.display = "block";
+  }
+  
+  function closeRegForm() {
+    document.getElementById("myRegForm").style.display = "none";
+  }
+
+  /* Form to JSON */
   $(() => {
     const form = $('#form');
     /* Date_test */ 
@@ -48,6 +59,8 @@ function openForm() {
         console.log(formData);
     })
 });
+/* --- Pop-Up Forms Javascript*/
+
 
 /* JavaScript für Datum und Zeit */
 setInterval(myTimer, 1000);

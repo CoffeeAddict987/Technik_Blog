@@ -111,6 +111,7 @@ to {opacity: 1}
 }
 .blog-element-text{
   text-align: center;
+  background-color: lightgray;
 }
 .blogtitel-table{
   font-size: 30px;
@@ -118,10 +119,36 @@ to {opacity: 1}
 }
 
 /*---------- Ende Textboxen für Blog Einträge */
-.side-nav {
-  border: 2px solid;
-}
 .btn-style {
   margin-top: 3%;
   min-width: 20%;
+}
+
+/*Blog-Tags */
+.blog-tags{
+  background-color: lightgreen;
+  padding: 5%;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+/*Über uns*/
+.about-us {
+  background-color: lightgreen;
+  color: black;
+  margin-top: 5%;
+}
+.about-us h2 {
+  text-align: center;
+}
+.about-us hr {
+  border-top: 20px solid green;
+}
+.about-us p{
+  text-align: left;
+  padding: 5%;
+}
+.about-us-pic{
+  width:20%;
+  margin-left: 20%;
 }

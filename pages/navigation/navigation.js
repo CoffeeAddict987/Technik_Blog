@@ -22,12 +22,15 @@ class Navigation extends Page {
         $('.navigation-container a').removeClass('active');
         $(`.navigation-container a#${id}`).addClass('active');
     }
+
 }
+
 
 /* Pop-Up Forms Javascript*/
 window.onload = function(){
     document.getElementById("myLoginForm").style.display = "none";
     document.getElementById("myRegForm").style.display = "none";
+
 }
 
 function openLoginForm() {
@@ -44,6 +47,11 @@ function openLoginForm() {
   
   function closeRegForm() {
     document.getElementById("myRegForm").style.display = "none";
+  }
+  function Navtoggle(){
+    const toggleButton = document.getElementsByClassName('toggle-button')[0]
+    const navbarLinks = document.getElementsByClassName('navbar-links')[0]
+    navbarLinks.classList.toggle('active')
   }
 
   /* Form to JSON */
@@ -74,6 +82,7 @@ function myTimer() {
   text = + day + '. ' + month + ' ' + year + ' |';
   document.getElementById('ausgabe')
   .innerHTML = text;
+
 }
 
 /* ---------------------------------- */

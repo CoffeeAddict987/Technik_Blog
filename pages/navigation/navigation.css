@@ -1,40 +1,105 @@
-/*Haupt css für Navigationsleisten*/
-.navigation-container {
-    background-color: lightgreen;
-    position: sticky;
-    top: 0;
+/*CSS für Navigationsleisten*/
+* {
+  box-sizing: border-box;
+}
+
+.navbar {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  background-color: lightgreen;
+  color: black;
+}
+
+.brand-title {
+  font-size: 1.5rem;
+  margin: .5rem;
+}
+
+.navbar-links {
+  height: 100%;
+  margin-right: 15%;
+}
+
+.navbar-links ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links li {
+  list-style: none;
+}
+
+.navbar-links li a {
+  display: block;
+  text-decoration: none;
+  color: black;
+  padding: 14px 16px;
+  cursor: pointer;
+}
+
+.navigation-container a:hover {
+  background-color: white;
+  color: #333;
+}
+
+.toggle-button {
+  position: absolute;
+  top: .75rem;
+  right: 1rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+}
+
+.toggle-button .bar {
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+}
+
+@media (max-width: 850px) {
+  .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .toggle-button {
+      display: flex;
+  }
+
+  .navbar-links {
+      display: none;
+      width: 100%;
+  }
+
+  .navbar-links ul {
+      width: 100%;
+      flex-direction: column;
+  }
+
+  .navbar-links ul li {
+      text-align: center;
+  }
+
+  .navbar-links ul li a {
+      padding: .5rem 1rem;
+  }
+
+  .navbar-links.active {
+      display: flex;
+  }
 }
 
 .topnav-color{
   background-color: white;
-}
-
-.navigation-container a {
-    color: black;
-    text-decoration: none;
-    padding: 14px 16px;
-    cursor: pointer;
-}
-
-.navigation-container a:hover {
-    background-color: white;
-    color: #333;
-}
-
-.navigation-container a {
-    display: block;
-}
-
-.navigation-container {
-    display: flex;
-}
-
-
-
-/* Hintergrundfarbe der Navigation ändern (Stimmig zu .dropbtn)*/
-.nav-backg {
-    background-color: lightgreen;
-}
+  }
+  
 /* Rechtes Logo CSS-Daten*/
 .nav-img{
     width: 15%;
@@ -42,6 +107,7 @@
     float: right;
 }
 /* ------- Ende Haupt css */
+
 /* Hier alles für Nav-Dropdown Elemente */
   .dropdown {
     position: relative;
@@ -95,7 +161,7 @@
 /*-------- Ende Uhrzeit, Suche*/
 
 
-/* Navigation Form*/
+/* Navigation Registierung und Login Form*/
 /* Add styles to the form container */
 .form-container {
   max-width: 25%;

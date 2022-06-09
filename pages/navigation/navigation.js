@@ -54,19 +54,21 @@ function openLoginForm() {
     navbarLinks.classList.toggle('active')
   }
 
-  /* Form to JSON */
+  /* Form to JSON Login Form */
   $(() => {
-    const form = $('#form');
+    const form = $('#myLoginForm');
     /* Date_test */ 
     form.on('submit', (e) => {
         e.preventDefault();
         const formData = form.serializeArray().reduce((prevValue, currentValue)=> ({
             ...prevValue, // alle Eigenschaften des vorherigen Objektes in neues Objekt übernehmen
-            [currentValue.name]: currentValue.value,
+            ["id"]: 'id' + (new Date()).getTime(),
+            [currentValue.name]: currentValue.value
         }), {}); // {} entspricht einem leeren Objekt als Startwert
         console.log(formData);
     })
 });
+
 /* --- Pop-Up Forms Javascript*/
 
 

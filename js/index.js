@@ -16,12 +16,13 @@ function navigatePage(id) {
         lectureContent: new LectureContent(),
         databaseContent: new DatabaseContent(),
         druckerContent: new DruckerContent(),
+        nutzer: new Nutzer(),
     };
     pages[id].render('#content');
 }
 
 function registerPages() {
-    const pages = ['home', 'lectureContent', 'databaseContent', 'druckerContent','footer','navigation'];
+    const pages = ['home', 'lectureContent', 'databaseContent', 'druckerContent','footer','navigation', 'nutzer'];
     const links = pages.map((c) => $(`<script src="pages/${c}/${c}.js"></script>`));
     const stylesheets = pages.map((c) => $(`<link rel="stylesheet" href="pages/${c}/${c}.css">`));
     $('head').prepend(links, stylesheets);

@@ -23,12 +23,29 @@ class User extends Page {
 
 function addInput() { 
     var old = document.getElementById('inp').innerHTML; 
-    document.getElementById('inp').innerHTML = old + "<b>Passwort bestätigen</b> <input type='password' minlength='8' placeholder='Repeat Password' name='repeat' value='' class='form-input' required/><br>"; 
-    document.getElementById('login-btn').innerHTML = "Registrieren";
+    document.getElementById('inp').innerHTML = old + "<b>Passwort bestätigen</b> <input type='password' minlength='4' placeholder='Repeat Password' name='repeat' value='' class='form-input' id='password-repeat' required/><br>"; 
+    document.getElementById('reg-btn').innerHTML = "<button type='submit' class='btn' onclick='checkPassword()'  id='reg-btn'>Registrieren</button>";
     InputObj = document.getElementById('registration');
     document.getElementById('myLoginForm').removeChild(InputObj);
+    InputObj2 = document.getElementById('login-btn');
+    document.getElementById('myLoginForm').removeChild(InputObj2);
+
 } 
 
+function checkPassword()
+{
+    var pw1 = document.getElementById("password").value;
+    var pw2 = document.getElementById("password-repeat").value;
+
+    if (pw1 != pw2)
+    {
+        alert("Passwörter müssen gleich sein!")
+        document.getElementById("password").focus();
+        return false;
+    }
+
+    return true;
+}
 
 
   

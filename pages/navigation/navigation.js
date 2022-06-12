@@ -28,39 +28,12 @@ class Navigation extends Page {
 
 }
 
-  /* Form to JSON Login Form 
-  $(() => {
-    const form = $('#myLogin');
-    const button = $('#btn');
-    form.on('submit', (e) => {
-        e.preventDefault();
-  
-        const formData = form.serializeArray().reduce((prevValue, currentValue)=> ({
-            ...prevValue, // alle Eigenschaften des vorherigen Objektes in neues Objekt übernehmen
-            ["id"]:   'id' + (new Date()).getTime(),
-            [currentValue.name]:  currentValue.value,
-        }), {}); // {} entspricht einem leeren Objekt als Startwert
-        console.log(formData);
-  
-    })
-    button.on('click', (e) =>{
-        var uniq = 'id' + (new Date()).getTime();
-        console.log(uniq);
-    })
-  
-  }); */
-  
-  
-
-
 /*Nav-Toggle*/
   function Navtoggle(){
     const toggleButton = document.getElementsByClassName('toggle-button')[0]
     const navbarLinks = document.getElementsByClassName('navbar-links')[0]
     navbarLinks.classList.toggle('active')
   }
-
-
 /* --- Nav-Toggle*/
 
 
@@ -78,5 +51,4 @@ function myTimer() {
   .innerHTML = text;
 
 }
-
 /* ---------------------------------- */

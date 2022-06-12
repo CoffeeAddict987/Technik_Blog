@@ -39,8 +39,7 @@ function checkPassword()
 
     if (pw1 != pw2)
     {
-        alert("Passwörter müssen gleich sein!")
-        document.getElementById("password").focus();
+      
         return false;
     }
 

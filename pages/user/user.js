@@ -1,6 +1,6 @@
-class Nutzer extends Page {
+class User extends Page {
     constructor() {
-        super('nutzer');
+        super('user');
     }
 
     render(parentSelector) {

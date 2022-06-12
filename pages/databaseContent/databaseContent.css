@@ -1,13 +1,21 @@
+.text2{
+    color: black;
+    border: solid 2px;
+    text-align: center;
+  
+}
+
+.title2{
+    border: solid 2px;
+    text-align: center;
+}
+
 .database-content-wrapper {
-    display: flex;
-    flex-flow: column;
-    align-items: center;
+    border: solid 4px brown;
+
 }
 
 .database-content {
-    margin: 10px;
-    padding: 10px;
-    background-color: white;
-    border-radius: 5px;
-    max-width: 80%;
+    border: solid 4px pink;
+    width: 100%;
 }

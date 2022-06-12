@@ -23,7 +23,7 @@ class User extends Page {
 
 function addInput() { 
     var old = document.getElementById('inp').innerHTML; 
-    document.getElementById('inp').innerHTML = old + "<b>Passwort bestätigen</b> <input type='password' placeholder='Repeat Password' name='repeat' value='' required/><br>"; 
+    document.getElementById('inp').innerHTML = old + "<b>Passwort bestätigen</b> <input type='password' minlength='8' placeholder='Repeat Password' name='repeat' value='' class='form-input' required/><br>"; 
     document.getElementById('login-btn').innerHTML = "Registrieren";
     InputObj = document.getElementById('registration');
     document.getElementById('myLoginForm').removeChild(InputObj);

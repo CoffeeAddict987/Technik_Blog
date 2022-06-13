@@ -1,22 +1,21 @@
-.lecture-content table {
-    font-family: arial, sans-serif;
-    width: 90%;
-    border-collapse: collapse;
-    margin:0 5% ;
-}
-
-
-.lecture-content td, 
-.lecture-content th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-}
-
-.lecture-content tr:nth-child(even) {
-    background-color: #dddddd;
-}
-
-.lecture-content .headline {
+.text2{
+    color: black;
+    border: solid 2px;
     text-align: center;
+  
+}
+
+.title2{
+    border: solid 2px;
+    text-align: center;
+}
+
+.database-content-wrapper {
+    border: solid 4px brown;
+
+}
+
+.database-content {
+    border: solid 4px pink;
+    width: 100%;
 }

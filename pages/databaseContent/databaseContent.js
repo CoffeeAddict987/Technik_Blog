@@ -1,5 +1,3 @@
-
-
 class DatabaseContent extends Page {
     constructor() {
         super('databaseContent');

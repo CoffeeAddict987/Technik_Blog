@@ -12,7 +12,7 @@ class DatabaseUsersService
     //Checks if a User with the given Mail already exists
     public function isExisting($mail) {
         // check if body already exists
-        $selectQuery = 'SELECT COUNT(id) from '.$this->table.' WHERE email = ' . $mail;
+        $selectQuery = 'SELECT id, username, email from '.$this->table.' WHERE email = "' .$mail.'"';
         $statement = $this->database->prepare($selectQuery);
 
         $statement->execute();
@@ -31,7 +31,8 @@ class DatabaseUsersService
         $statement->execute();
         $data = $statement->fetchAll();
 
-        $result = $data[0];
+        $result = $data[0][0];
+
         if ($result == $password)
             return true;
         return false;

@@ -92,6 +92,16 @@ class Endpoint
         http_response_code(409);
     }
 
+    protected function unauthorized() {
+        echo 'unauthorized';
+        http_response_code(401);
+    }
+
+    protected function forbidden() {
+        echo 'forbidden';
+        http_response_code(403);
+    }
+
     protected function ok($result) {
         $this->responseRequest(200, $result);
     }

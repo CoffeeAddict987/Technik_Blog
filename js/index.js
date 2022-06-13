@@ -13,7 +13,7 @@ function navigatePage(id) {
     console.log('navigate to page', id);
     const pages = {
         home: new Home(),
-        lectureContent: new LectureContent(),
+        blog: new Blog(),
         databaseContent: new DatabaseContent(),
         druckerContent: new DruckerContent(),
         user: new User(),
@@ -22,7 +22,7 @@ function navigatePage(id) {
 }
 
 function registerPages() {
-    const pages = ['home', 'lectureContent', 'databaseContent', 'druckerContent','footer','navigation','user'];
+    const pages = ['home', 'blog', 'databaseContent', 'druckerContent','footer','navigation','user'];
     const links = pages.map((c) => $(`<script src="pages/${c}/${c}.js"></script>`));
     const stylesheets = pages.map((c) => $(`<link rel="stylesheet" href="pages/${c}/${c}.css">`));
     $('head').prepend(links, stylesheets);

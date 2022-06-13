@@ -1,6 +1,6 @@
-class LectureContent extends Page {
+class Blog extends Page {
     constructor() {
-        super('lectureContent');
+        super('blog');
     }
 
 

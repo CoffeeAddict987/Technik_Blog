@@ -1,7 +1,8 @@
-class DatabaseContent extends Page {
+class Blog extends Page {
     constructor() {
-        super('databaseContent');
+        super('blog');
     }
+
 
     render(parentSelector) {
         const contents = getDatabaseContent();
@@ -20,4 +21,6 @@ class DatabaseContent extends Page {
         $(parentSelector).empty().append(wrapper);
         
     }
+    
 }
+

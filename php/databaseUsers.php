@@ -1,12 +1,12 @@
 <?php
-/* Diese Klasse übernimmt die Contents:
-Get: Get articles (mit id/ohne id -> dann mit Menge und/oder Parametern) */
+/*  */
 require_once(__DIR__ . '../services/databaseUsersService.php');
 require_once(__DIR__ . './endpoint.php');
 
 class DatabaseUsersEndpoint extends Endpoint
 {
     private $databaseContentService;
+
     public function __construct() {
         parent::__construct();
         $this->databaseContentService = new DatabaseUsersService($this->database);
@@ -26,9 +26,10 @@ class DatabaseUsersEndpoint extends Endpoint
                 $this->notFound();
                 return;
             }
-            $result = $this->databaseContentService->getByMail($mail);
-            $id = $result['id'];
         }
+
+        $result = $this->databaseContentService->getByMail($mail);
+        $id = $result['id'];
         
         //Passwordcheck
         if(!($this->databaseContentService->checkPassword($id, $password))) {
@@ -39,23 +40,40 @@ class DatabaseUsersEndpoint extends Endpoint
         $this->ok($result);
     }
 
+    //Response Codes: 201 if successful; 406 if one or more fields are empty or missing; 409 if user already exists
     protected function post() {
-        $mail = $this->body['email'];
+        $mail = $this->getQueryParameter('email');
+        $name = $this->getQueryParameter('name');
 
-        // check if body already exists
+        // check if mail already exists
         if ($this->databaseContentService->isExisting($mail)) {
             $this->duplicatedId();
             return;
         }
 
+        // check if username already exists
+        if ($this->databaseContentService->isExisting($name)) {
+            $this->duplicatedId();
+            return;
+        }
+
         // insert into db if not exists
-        $this->databaseContentService->add($this->body);
+        $this->databaseContentService->add($this->params);
         $result = $this->databaseContentService->getByMail($mail);
+
+        if($result == null){
+            $this->notAcceptable();
+            return;
+        }
+
         $this->created($result);
     }
 
+    //Response Codes: 200 if successful; 404 if no user to change is found; 409 if the username to change is already taken
     protected function patch() {
+        //To implement: Username oder Passwort ändern
         $mail = $this->getQueryParameter('email', true);
+        $name = $this->getQueryParameter('name', true);
 
         // check if entity already exists in database
         if (!$this->databaseContentService->isExisting($mail)) {
@@ -64,12 +82,18 @@ class DatabaseUsersEndpoint extends Endpoint
             return;
         }
 
-        $this->databaseContentService->update($this->body);
+        if ($this->databaseContentService->isExisting($name)) {
+            $this->duplicatedId();
+            return;
+        }
+
+        $this->databaseContentService->update($this->params);
         $result = $this->databaseContentService->getByMail($mail);
+
         $this->ok($result);
     }
 
-    //Delete by Id
+    //Response Codes: 200 if successful; 404 if entered user doesn't exist
     protected function delete() {
         $mail = $this->getQueryParameter('email', true);
         $id = $this->getQueryParameter('id', true);

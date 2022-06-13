@@ -1,10 +1,10 @@
 <?php
-class Endpoint
-{
+class Endpoint {
     protected $database;
     protected $body;
     protected $params;
 
+    //Things for handling the class Endpoint
     public function __construct() {
         // initialize database
         // set headers
@@ -17,6 +17,7 @@ class Endpoint
         header('Access-Control-Allow-Origin: http://127.0.0.1:5501');
     }
 
+    //Functions to call the api
     protected function get() {
         $this->unsupportedHttpMethod();
     }
@@ -37,6 +38,58 @@ class Endpoint
         header('Access-Control-Allow-Methods: GET, POST, PATCH, DELETE, OPTIONS');
     }
 
+    //Http Response Codes; Ordered in ascending order
+    protected function ok($result) {
+        echo "ok";
+        $this->responseRequest(200, $result);
+    }   //200
+
+    protected function created($result) {
+        echo "created";
+        $this->responseRequest(201, $result);
+    }   //201
+
+    protected function unsupportedHttpMethod() {
+        echo 'Unsupported HTTP method';
+        http_response_code(400);
+    }   //400
+    
+    protected function unauthorized() {
+        echo 'unauthorized';
+        http_response_code(401);
+    }   //401
+    
+    protected function forbidden() {
+        echo 'forbidden';
+        http_response_code(403);
+    }   //403
+
+    protected function notFound() {
+        echo 'entity not found';
+        http_response_code(404);
+    }   //404
+    
+    protected function notAcceptable() {
+        echo 'not Acceptable';
+        http_response_code(406);
+    }   //406
+
+    protected function duplicatedId() {
+        echo 'duplicated id';
+        http_response_code(409);
+    }   //409
+
+    protected function requestRangeNotSatisfiable() {
+        echo 'request Range Not Satisfiable';
+        http_response_code(416);
+    }   //416
+
+    protected function responseRequest($code, $result) {
+        echo json_encode($result);
+        http_response_code($code);
+    }
+
+    //Handling the Request
     public function handleRequest() {
         $httpMethod = $_SERVER['REQUEST_METHOD'];
 
@@ -70,49 +123,6 @@ class Endpoint
                 $this->unsupportedHttpMethod();
                 break;
         }
-    }
-
-    protected function unsupportedHttpMethod() {
-        http_response_code(400);
-        echo 'Unsupported HTTP method';
-    }
-
-    protected function notFound() {
-        http_response_code(404);
-        echo 'entity not found';
-    }
-
-    protected function requestRangeNotSatisfiable() {
-        echo 'request Range Not Satisfiable';
-        http_response_code(416);
-    }
-
-    protected function duplicatedId() {
-        echo 'duplicated id';
-        http_response_code(409);
-    }
-
-    protected function unauthorized() {
-        echo 'unauthorized';
-        http_response_code(401);
-    }
-
-    protected function forbidden() {
-        echo 'forbidden';
-        http_response_code(403);
-    }
-
-    protected function ok($result) {
-        $this->responseRequest(200, $result);
-    }
-
-    protected function created($result) {
-        $this->responseRequest(201, $result);
-    }
-
-    protected function responseRequest($code, $result) {
-        echo json_encode($result);
-        http_response_code($code);
     }
     
     protected function getQueryParameter($key, $required = false) {

@@ -9,16 +9,17 @@ class DatabaseUsersService
         $this->table = 'users';
     }
 
-    //Checks if a User with the given Mail already exists
-    public function isExisting($mail) {
+    //Checks if a User with the given Mail or username already exists
+    public function isExisting($input) {
         // check if body already exists
-        $selectQuery = 'SELECT id, username, email from '.$this->table.' WHERE email = "' .$mail.'"';
+        $selectQuery = 'SELECT COUNT(id) from '.$this->table.' WHERE email = "' .$input.'" OR username = "' .$input. '";';
         $statement = $this->database->prepare($selectQuery);
 
         $statement->execute();
         $data = $statement->fetchAll();
 
         $count = $data[0][0];
+
         $existing = $count > 0;
         return $existing;
     }
@@ -60,7 +61,7 @@ class DatabaseUsersService
         $mail = $updatedEntity['email'];
         $name = $updatedEntity['name'];
 
-        $updateQuery = 'UPDATE '.$this->table.' SET email=:email, name=:name WHERE id=:id';        
+        $updateQuery = 'UPDATE '.$this->table.' SET email=:email, username=:name WHERE id=:id';        
         $statement = $this->database->prepare($updateQuery);
         $statement->bindParam(':id', $id);
         $statement->bindParam(':email', $mail);
@@ -78,8 +79,12 @@ class DatabaseUsersService
 
         $mail = $newEntity['email'];
         $name = $newEntity['name'];
+        $password = $newEntity['password'];
 
-        $insertQuery = 'INSERT INTO '.$this->table.' (id, email, name) VALUES (' .$id. '", "' . $mail . '", "' . $name . '" )';
+        if($mail == null || $name == null || $password == null)
+            return;
+
+        $insertQuery = 'INSERT INTO '.$this->table.' (id, email, username, password) VALUES (' .$id. ', "' . $mail . '", "' . $name . '" ,"' . $password . '" );';
         $statement = $this->database->prepare($insertQuery);
         $statement->execute();
     }

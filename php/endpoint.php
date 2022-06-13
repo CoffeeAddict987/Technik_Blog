@@ -82,6 +82,11 @@ class Endpoint
         echo 'entity not found';
     }
 
+    protected function requestRangeNotSatisfiable() {
+        echo 'request Range Not Satisfiable';
+        http_response_code(416);
+    }
+
     protected function duplicatedId() {
         echo 'duplicated id';
         http_response_code(409);

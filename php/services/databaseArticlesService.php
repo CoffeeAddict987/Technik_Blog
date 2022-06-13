@@ -1,5 +1,5 @@
 <?php
-class DatabaseContentService
+class DatabaseArticlesService
 {
     private $database;
     private $table;
@@ -38,12 +38,22 @@ class DatabaseContentService
     }
 
     public function getById($id) {
-        $query = 'SELECT * FROM '.$this->table.' WHERE id = ' . $id;
+        $strIds = implode("','", $id);
+
+        $query = 'SELECT articles.id, articles.title, content.content, pictures.path, users.username FROM'. $this->table.'
+        INNER JOIN users ON articles.author_id = users.id
+        INNER JOIN content ON articles.content_id = content.id
+        INNER JOIN pictures ON articles.picture_id = pictures.id
+        WHERE articles.id = '. $strIds;
+
         $statement = $this->database->prepare($query);
         $statement->execute();
+
         $data = $statement->fetchAll(PDO::FETCH_ASSOC);
+
         if (count($data) == 0)
             return null;
+        
         $result = $data[0];
         return $result;
     }
@@ -56,8 +66,9 @@ class DatabaseContentService
 
     public function update($updatedEntity) {
         $id = $updatedEntity['id'];
-        $text = $updatedEntity['text'];
+        $text = $updatedEntity['content'];
         $title = $updatedEntity['title'];
+        $author = $updatedEntity['author_id'];
 
         // $updateQuery = 'UPDATE database_content SET title="' . $title . '", text= "' . $text . '" WHERE id=' . $id;
         $updateQuery = 'UPDATE '.$this->table.' SET title=:title, text=:text WHERE id=:id';        

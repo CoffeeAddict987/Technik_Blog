@@ -1,7 +1,7 @@
 <?php
 /* Diese Klasse übernimmt die Contents:
 Get: Get articles (mit id/ohne id -> dann mit Menge und/oder Parametern) */
-require_once(__DIR__ . './../services/databaseUsersService.php');
+require_once(__DIR__ . '../services/databaseUsersService.php');
 require_once(__DIR__ . './endpoint.php');
 
 class DatabaseUsersEndpoint extends Endpoint
@@ -27,11 +27,11 @@ class DatabaseUsersEndpoint extends Endpoint
                 return;
             }
             $result = $this->databaseContentService->getByMail($mail);
-            $id = $result[0]['id'];
+            $id = $result['id'];
         }
-
+        
         //Passwordcheck
-        if(!$this->databaseContentService->checkPassword($id, $password)) {
+        if(!($this->databaseContentService->checkPassword($id, $password))) {
             $this->forbidden();
             return;
         }

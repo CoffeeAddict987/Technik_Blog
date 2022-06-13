@@ -8,7 +8,7 @@ class Endpoint
     public function __construct() {
         // initialize database
         // set headers
-        $this->database = new PDO('mysql:host=127.0.0.1;dbname=php_rest_api_db', "root", "");
+        $this->database = new PDO('mysql:host=127.0.0.1;dbname=database', "root", "");
         $this->setHeaders();
     }
 

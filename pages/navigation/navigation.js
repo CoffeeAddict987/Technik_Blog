@@ -16,6 +16,9 @@ class Navigation extends Page {
             if (this.onClickCallback)
                 this.onClickCallback('home');
         });
+  
+    
+        
     }
 
     navigateTo(id) {
@@ -25,51 +28,13 @@ class Navigation extends Page {
 
 }
 
-
-/* Pop-Up Forms Javascript*/
-window.onload = function(){
-    document.getElementById("myLoginForm").style.display = "none";
-    document.getElementById("myRegForm").style.display = "none";
-
-}
-
-function openLoginForm() {
-    document.getElementById("myLoginForm").style.display = "block";
-  }
-  
-  function closeLoginForm() {
-    document.getElementById("myLoginForm").style.display = "none";
-  }
-
-  function openRegForm() {
-    document.getElementById("myRegForm").style.display = "block";
-  }
-  
-  function closeRegForm() {
-    document.getElementById("myRegForm").style.display = "none";
-  }
+/*Nav-Toggle*/
   function Navtoggle(){
     const toggleButton = document.getElementsByClassName('toggle-button')[0]
     const navbarLinks = document.getElementsByClassName('navbar-links')[0]
     navbarLinks.classList.toggle('active')
   }
-
-  /* Form to JSON Login Form */
-  $(() => {
-    const form = $('#myLoginForm');
-    /* Date_test */ 
-    form.on('submit', (e) => {
-        e.preventDefault();
-        const formData = form.serializeArray().reduce((prevValue, currentValue)=> ({
-            ...prevValue, // alle Eigenschaften des vorherigen Objektes in neues Objekt übernehmen
-            ["id"]: 'id' + (new Date()).getTime(),
-            [currentValue.name]: currentValue.value
-        }), {}); // {} entspricht einem leeren Objekt als Startwert
-        console.log(formData);
-    })
-});
-
-/* --- Pop-Up Forms Javascript*/
+/* --- Nav-Toggle*/
 
 
 /* JavaScript für Datum und Zeit */
@@ -86,5 +51,4 @@ function myTimer() {
   .innerHTML = text;
 
 }
-
 /* ---------------------------------- */

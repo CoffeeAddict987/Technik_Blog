@@ -1,0 +1,4 @@
+SELECT articles.title, interests.name, interests.id FROM articlesxinterets
+INNER JOIN articles ON articlesxinterets.articleid = articles.id
+INNER JOIN interests ON articlesxinterets.interestid = interests.id
+WHERE articles.id = 2;

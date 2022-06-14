@@ -11,7 +11,8 @@ class DatabaseUsersEndpoint extends Endpoint
         parent::__construct();
         $this->databaseContentService = new DatabaseUsersService($this->database);
     }
-    //Get: Login; Responsecode falsches Password: 403; Unbekannte Mail 404
+    
+    //Response Codes: 200 if successful; 403 if the password entered ist wrong; 404 if no matching mail is found
     protected function get() {
         $id = null;
         $result = null;

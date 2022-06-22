@@ -13,55 +13,26 @@ class DatabaseInterestsEndpoint extends Endpoint
         $this->databaseContentService = new DatabaseInterestsService($this->database);
     }
     
-    //Response Codes: 200 if successful; 403 if the password entered ist wrong; 404 if no matching mail is found
+    //Response Codes: 200 if successful
     protected function get() {
-        $id = null;
-        $result = null;
-        $mail = $this->getQueryParameter('email');
-        $password = $this->getQueryParameter('password');
-
-        //Test if user exits
-        if ($mail != null) {
-            $result = $this->databaseContentService->isExisting($mail);
-            if ($result == null) {
-                // set 404 - Not Found
-                $this->notFound();
-                return;
-            }
-        }
-
-        $result = $this->databaseContentService->getByMail($mail);
-        $id = $result['id'];
-        
-        //Passwordcheck
-        if(!($this->databaseContentService->checkPassword($id, $password))) {
-            $this->forbidden();
-            return;
-        }
-
+        $result = $this->databaseContentService->getAll();
         $this->ok($result);
     }
 
-    //Response Codes: 201 if successful; 406 if one or more fields are empty or missing; 409 if user already exists
+    //Response Codes: 201 if successful; 406 if name field is empty or missing; 409 if name already exists
     protected function post() {
-        $mail = $this->getQueryParameter('email');
+        $id = null;
         $name = $this->getQueryParameter('name');
 
         // check if mail already exists
-        if ($this->databaseContentService->isExisting($mail)) {
-            $this->duplicatedId();
-            return;
-        }
-
-        // check if username already exists
         if ($this->databaseContentService->isExisting($name)) {
             $this->duplicatedId();
             return;
         }
 
         // insert into db if not exists
-        $this->databaseContentService->add($this->params);
-        $result = $this->databaseContentService->getByMail($mail);
+        $id = $this->databaseContentService->add($this->params);
+        $result = $this->databaseContentService->getById($id);
 
         if($result == null){
             $this->notAcceptable();
@@ -71,43 +42,35 @@ class DatabaseInterestsEndpoint extends Endpoint
         $this->created($result);
     }
 
-    //Response Codes: 200 if successful; 404 if no user to change is found; 409 if the username to change is already taken
+    //Response Codes: 200 if successful; 404 if id to change is not found
     protected function patch() {
-        //To implement: Username oder Passwort ändern
-        $mail = $this->getQueryParameter('email', true);
-        $name = $this->getQueryParameter('name', true);
+        $id = $this->getQueryParameter('id', true);
 
         // check if entity already exists in database
-        if (!$this->databaseContentService->isExisting($mail)) {
+        if (!$this->databaseContentService->isExisting($id)) {
             // set 404 - Not Found
             $this->notFound();
             return;
         }
 
-        if ($this->databaseContentService->isExisting($name)) {
-            $this->duplicatedId();
-            return;
-        }
-
         $this->databaseContentService->update($this->params);
-        $result = $this->databaseContentService->getByMail($mail);
+        $result = $this->databaseContentService->getById($id);
 
         $this->ok($result);
     }
 
     //Response Codes: 200 if successful; 404 if entered user doesn't exist
     protected function delete() {
-        $mail = $this->getQueryParameter('email', true);
         $id = $this->getQueryParameter('id', true);
 
         // check if entity already exists in database
-        if (!$this->databaseContentService->isExisting($mail)) {
+        if (!$this->databaseContentService->isExisting($id)) {
             // set 404 - Not Found
             $this->notFound();
             return;
         }
 
-        $result = $this->databaseContentService->getByMail($mail);
+        $result = $this->databaseContentService->getById($id);
         $this->databaseContentService->deleteById($id);
         $this->ok($result);
     }

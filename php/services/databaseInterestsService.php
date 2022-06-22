@@ -6,7 +6,7 @@ class DatabaseInterestsService
 
     public function __construct(PDO $database) {
         $this->database = $database;
-        $this->table = 'articles';
+        $this->table = 'interests';
     }
 
     public function isExisting($id) {
@@ -20,42 +20,23 @@ class DatabaseInterestsService
         return $existing;
     }
 
-    public function amountOf() {
-              $selectQuery = 'SELECT COUNT(id) from '.$this->table;
-              $statement = $this->database->prepare($selectQuery);
-              $statement->execute();
-              $data = $statement->fetchAll();
-              return $data[0][0];
+    public function getById($id) {
+        $query = 'SELECT * FROM ' .$this->table. ' WHERE id = ' . $id;
+        $statement = $this->database->prepare($query);
+        $statement->execute();
+        $data = $statement->fetchAll(PDO::FETCH_ASSOC);
+        if (count($data) == 0)
+            return null;
+        $result = $data[0];
+        return $result;
     }
 
-    public function getByInterest($interestTags) {
-        $strInterestTags = implode("','", $interestTags);
-        $query = 'SELECT * FROM '. $this->table .' WHERE tag = '. $strInterestTags;
+    public function getAll() {
+        $query = 'SELECT * FROM '. $this->table;
         $statement = $this->database->prepare($query);
         $statement->execute();
         $data = $statement->fetchAll(PDO::FETCH_ASSOC);
         return $data;
-    }
-
-    public function getById($id) {
-        $strIds = implode("','", $id);
-
-        $query = 'SELECT articles.id, articles.title, content.content, pictures.path, users.username FROM'. $this->table.'
-        INNER JOIN users ON articles.author_id = users.id
-        INNER JOIN content ON articles.content_id = content.id
-        INNER JOIN pictures ON articles.picture_id = pictures.id
-        WHERE articles.id = '. $strIds;
-
-        $statement = $this->database->prepare($query);
-        $statement->execute();
-
-        $data = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-        if (count($data) == 0)
-            return null;
-        
-        $result = $data[0];
-        return $result;
     }
 
     public function deleteById($id) {
@@ -66,27 +47,31 @@ class DatabaseInterestsService
 
     public function update($updatedEntity) {
         $id = $updatedEntity['id'];
-        $text = $updatedEntity['content'];
-        $title = $updatedEntity['title'];
-        $author = $updatedEntity['author_id'];
+        $name = $updatedEntity['name'];
 
-        // $updateQuery = 'UPDATE database_content SET title="' . $title . '", text= "' . $text . '" WHERE id=' . $id;
-        $updateQuery = 'UPDATE '.$this->table.' SET title=:title, text=:text WHERE id=:id';        
+        $updateQuery = 'UPDATE '.$this->table.' SET name=:name, WHERE id=:id';        
         $statement = $this->database->prepare($updateQuery);
         $statement->bindParam(':id', $id);
-        $statement->bindParam(':title', $title);
-        $statement->bindParam(':text', $text);
+        $statement->bindParam(':name', $name);
         $statement->execute();
     }
 
     public function add($newEntity) {
-        $id = $newEntity['id'];
-        $text = $newEntity['text'];
-        $title = $newEntity['title'];
+        //id not autoincremented
+        $idQuery = 'SELECT MAX(id) FROM '. $this->table;
+        $statement = $this->database->prepare($idQuery);
+        $statement->execute();
+        $data = $statement->fetchAll();
+        $id = $data[0][0] + 1;
 
-        $insertQuery = 'INSERT INTO '.$this->table.' (id, title, text) VALUES (' . $id . ', "' . $title . '", "' . $text . '" )';
+        $name = $newEntity['name'];
+        if($name == null)
+            return;
+
+        $insertQuery = 'INSERT INTO '.$this->table.' (id, name) VALUES (' . $id . ', "' . $name .'" )';
         $statement = $this->database->prepare($insertQuery);
         $statement->execute();
+        return $id;
     }
 }
 ?>

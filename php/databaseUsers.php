@@ -72,7 +72,6 @@ class DatabaseUsersEndpoint extends Endpoint
 
     //Response Codes: 200 if successful; 404 if no user to change is found; 409 if the username to change to is already taken
     protected function patch() {
-        //To implement: Username oder Passwort ändern
         $mail = $this->getQueryParameter('email', true);
         $name = $this->getQueryParameter('name', true);
 

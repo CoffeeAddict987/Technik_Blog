@@ -11,7 +11,7 @@ class DatabaseUsersService
 
     //Checks if a User with the given Mail or username already exists
     public function isExisting($input) {
-        // check if body already exists
+        //check if body already exists
         $selectQuery = 'SELECT COUNT(id) from '.$this->table.' WHERE email = "' .$input.'" OR username = "' .$input. '";';
         $statement = $this->database->prepare($selectQuery);
 
@@ -25,7 +25,10 @@ class DatabaseUsersService
     }
 
     public function checkPassword($userid, $password) {
-        // Select Password of user
+        //Hash sent Password
+        $passwordSHA256 = hash('SHA256', $password);
+
+        //Select Password of user
         $selectQuery = 'SELECT password from '.$this->table.' WHERE id = ' . $userid;
         $statement = $this->database->prepare($selectQuery);
 
@@ -34,7 +37,7 @@ class DatabaseUsersService
 
         $result = $data[0][0];
 
-        if ($result == $password)
+        if ($result == $passwordSHA256)
             return true;
         return false;
     }
@@ -56,16 +59,32 @@ class DatabaseUsersService
         $statement->execute();
     }
 
+    //Needs Debugging!
     public function update($updatedEntity) {
         $id = $updatedEntity['id'];
         $mail = $updatedEntity['email'];
         $name = $updatedEntity['name'];
+        $password = $updatedEntity['password'];
 
-        $updateQuery = 'UPDATE '.$this->table.' SET email=:email, username=:name WHERE id=:id';        
+        //if password is empty set password to old password - Needs Debugging!
+        if ($password == null) {
+            $selectQuery = 'SELECT password from '.$this->table.' WHERE id = "' .$id;
+            $statement = $this->database->prepare($selectQuery);
+
+            $statement->execute();
+            $data = $statement->fetchAll();
+            $password = $data[0][0];
+        }
+
+        //Hash sent Password
+        $passwordSHA256 = hash('SHA256', $password);
+
+        $updateQuery = 'UPDATE '.$this->table.' SET email=:email, username=:name, password=:password WHERE id=:id';        
         $statement = $this->database->prepare($updateQuery);
         $statement->bindParam(':id', $id);
         $statement->bindParam(':email', $mail);
         $statement->bindParam(':name', $name);
+        $statement->bindParam(':password', $passwordSHA256);
         $statement->execute();
     }
 
@@ -81,10 +100,13 @@ class DatabaseUsersService
         $name = $newEntity['name'];
         $password = $newEntity['password'];
 
+        //Hash sent Password
+        $passwordSHA256 = hash('SHA256', $password);
+
         if($mail == null || $name == null || $password == null)
             return;
 
-        $insertQuery = 'INSERT INTO '.$this->table.' (id, email, username, password) VALUES (' .$id. ', "' . $mail . '", "' . $name . '" ,"' . $password . '" );';
+        $insertQuery = 'INSERT INTO '.$this->table.' (id, email, username, password) VALUES (' .$id. ', "' . $mail . '", "' . $name . '" ,"' . $passwordSHA256 . '" );';
         $statement = $this->database->prepare($insertQuery);
         $statement->execute();
     }

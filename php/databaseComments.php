@@ -1,5 +1,6 @@
 <?php
-/* databaseComments by Johannes Neuhaus */
+/* databaseComments by Johannes Neuhaus
+still needs much work */
 require_once(__DIR__ . './../services/databaseCommentsService.php');
 require_once(__DIR__ . './endpoint.php');
 
@@ -34,10 +35,6 @@ class DatabaseCommentsEndpoint extends Endpoint
     }
 
     protected function patch() {
-        // get and parse http hody
-        // check if entity in db --> else 404
-        // update entity in db with latest properties
-
         $id = $this->body['id'];
 
         // check if entity already exists in database

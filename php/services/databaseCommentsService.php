@@ -1,5 +1,6 @@
 <?php
-/* databaseCommentsService by Johannes Neuhaus */
+/* databaseCommentsService by Johannes Neuhaus
+still needs much work */
 class DatabaseCommentsService
 {
     private $database;
@@ -7,7 +8,7 @@ class DatabaseCommentsService
 
     public function __construct(PDO $database) {
         $this->database = $database;
-        $this->table = 'articles';
+        $this->table = 'comments';
     }
 
     public function isExisting($id) {
@@ -19,23 +20,6 @@ class DatabaseCommentsService
         $count = $data[0][0];
         $existing = $count > 0;
         return $existing;
-    }
-
-    public function amountOf() {
-              $selectQuery = 'SELECT COUNT(id) from '.$this->table;
-              $statement = $this->database->prepare($selectQuery);
-              $statement->execute();
-              $data = $statement->fetchAll();
-              return $data[0][0];
-    }
-
-    public function getByInterest($interestTags) {
-        $strInterestTags = implode("','", $interestTags);
-        $query = 'SELECT * FROM '. $this->table .' WHERE tag = '. $strInterestTags;
-        $statement = $this->database->prepare($query);
-        $statement->execute();
-        $data = $statement->fetchAll(PDO::FETCH_ASSOC);
-        return $data;
     }
 
     public function getById($id) {

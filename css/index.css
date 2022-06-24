@@ -18,23 +18,5 @@ body {
 }
 
 #content {
-    margin: 10px;
+    margin: 0px;            /*Bitte beibehalten*/
 }
-
-
-/* Feedback-Banner wird entfernt 
-.feedback-banner {
-    position: fixed;
-    top: calc(50% - 50px);
-    background-color: #333;
-    color: #ffffff;
-
-    writing-mode: vertical-lr;
-    font-size: larger;
-    height: 100px;
-    text-align: center;
-
-    cursor: pointer;
-    z-index: 1;
-}
-*/

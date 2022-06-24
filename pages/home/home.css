@@ -2,11 +2,17 @@
   text-align: justify;
 }
 
+/*Anfang Slidebar*/
+
 * {box-sizing: border-box}
-body {font-family: Verdana, sans-serif; margin:0}
 .mySlides {display: none}
 img {
 max-width: 100%;
+}
+
+.table-content{
+  padding-top: 3%;          /*margin macht hier Probleme*/
+  padding-bottom: 3%;
 }
 
 .column-content{
@@ -30,7 +36,6 @@ max-width: 100%;
 #author{
   font-style: italic;
 }
-
 
 td{
   border-collapse: collapse;
@@ -95,11 +100,13 @@ from {opacity: 0.7}
 to {opacity: 1}
 }
 
-
-/* On smaller screens, decrease text size */
+/*Responisve Design */
 @media only screen and (max-width: 300px) {
-.prev, .next,.text {font-size: 11px}
+  .column-content{
+    display: none;
+  }
 }
+/*Ende Sildebar*/
 
 /* Textboxen für Blog Einträge*/
 .blog-element{
@@ -136,7 +143,7 @@ to {opacity: 1}
 .about-us {
   background-color: lightgreen;
   color: black;
-  margin-top: 5%;
+  margin-top: 0%;
 }
 .about-us h2 {
   text-align: center;

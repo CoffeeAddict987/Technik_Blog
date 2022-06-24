@@ -3,10 +3,31 @@ class Home extends Page {
         super('home');
     }
 
-    render(parentSelector) {
-        $(parentSelector).load(`./pages/${this.pageName}/${this.pageName}.html`, () => {
+    async render(parentSelector) {
+       $(parentSelector).load(`./pages/${this.pageName}/${this.pageName}.html`, () => {
             showSlides(slideIndex)          //Show Slides when page is renderd for the first time
+            
         });
+
+            //Probiert, aber leider nicht ganz sauber funktioniert
+            const contents = await getInterestsContent();
+            const contentElements = [];
+            console.log('render', contents);
+            const wrapper = $('<div />', { class: '' });
+            contents.forEach((content, index) => {
+                const contentElement = $('<button />', { class: '.tegs-container' });
+                //contentElement.load('./pages/home/home.html', () => {
+                    contentElement.find('.tags-container').text(content.name);
+                    if (index >= contents.length - 1) {
+                        $(testTag).empty().append(wrapper);
+                    }
+                //});
+                contentElements.push(contentElement);
+            });
+            wrapper.append(contentElements);
+            // $(parentSelector).empty().append(wrapper);
+        
+
     }
 }
 

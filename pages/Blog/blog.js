@@ -5,23 +5,25 @@ class Blog extends Page {
 
 
     async render(parentSelector) {
-        const contents = await getDatabaseContent();
+
+        //Hier soll Zufallsgenerator für die ID hin
+        const id = 1;
+        const contents = await getArticlesContentById(id); //Erster Artikel
         const contentElements = [];
         console.log('render', contents);
         const wrapper = $('<div />', { class: 'database-content-wrapper' });
-        contents.forEach((content, index) => {
-            const contentElement = $('<div />', { class: 'database-content' });
+
+        const contentElement = $('<div />', { class: 'database-content' });
             contentElement.load('./pages/databaseContent/databaseContent.html', () => {
-                contentElement.find('.title2').text(content.id);
-                contentElement.find('.text2').text(content.name);
-                if (index >= contents.length - 1) {
-                    $(parentSelector).empty().append(wrapper);
-                }
+                contentElement.find('.title2').text(contents.title);
+                contentElement.find('.text2').text(contents.content);
+                $(parentSelector).empty().append(wrapper);
             });
             contentElements.push(contentElement);
-        });
-        wrapper.append(contentElements);
-        // $(parentSelector).empty().append(wrapper);
+            wrapper.append(contentElements);
+
+        
+    
     }
 
     

@@ -14,7 +14,7 @@ class Endpoint {
 
     protected function setHeaders() {
         header('Content-Type: application/json');
-        header('Access-Control-Allow-Origin: http://127.0.0.1:5501');
+        header('Access-Control-Allow-Origin: http://127.0.0.1:5500');
     }
 
     //Functions to call the api

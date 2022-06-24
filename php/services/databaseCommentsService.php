@@ -1,4 +1,5 @@
 <?php
+/* databaseCommentsService by Johannes Neuhaus */
 class DatabaseCommentsService
 {
     private $database;

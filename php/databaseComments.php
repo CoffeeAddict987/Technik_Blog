@@ -1,6 +1,5 @@
 <?php
-/* Erst später machen. Jetzt nur Blueprint
- */
+/* databaseComments by Johannes Neuhaus */
 require_once(__DIR__ . './../services/databaseCommentsService.php');
 require_once(__DIR__ . './endpoint.php');
 

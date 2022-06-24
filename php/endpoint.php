@@ -1,4 +1,5 @@
 <?php
+/* Endpoint by Johannes Neuhaus */
 class Endpoint {
     protected $database;
     protected $body;

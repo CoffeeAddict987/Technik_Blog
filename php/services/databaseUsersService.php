@@ -1,4 +1,5 @@
 <?php
+/* databaseUsersService by Johannes Neuhaus */
 class DatabaseUsersService
 {
     private $database;

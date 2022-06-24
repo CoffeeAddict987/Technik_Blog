@@ -1,5 +1,5 @@
 <?php
-/*  */
+/* databaseUsers by Johannes Neuhaus */
 require_once(__DIR__ . '../services/databaseUsersService.php');
 require_once(__DIR__ . './endpoint.php');
 

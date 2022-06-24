@@ -1,6 +1,5 @@
 <?php
-/* Hier kommen alle Anfragen, die im Zusammenhang mit den Interessen stehen rein -> Alle Interessen ausgeben, mögl. Artikel nach
-Interessen ausgeben... */
+/* databaseInterests by Johannes Neuhaus */
 require_once(__DIR__ . '../services/databaseInterestsService.php');
 require_once(__DIR__ . './endpoint.php');
 

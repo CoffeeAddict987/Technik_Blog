@@ -1,6 +1,5 @@
 <?php
-/* Diese Klasse übernimmt die Contents:
-Get: Get articles (mit id/ohne id -> dann mit Menge und/oder Parametern) */
+/* databaseArticles by Johannes Neuhaus */
 require_once(__DIR__ . '../services/databaseArticlesService.php');
 require_once(__DIR__ . './endpoint.php');
 

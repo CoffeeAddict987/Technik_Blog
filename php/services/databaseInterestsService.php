@@ -1,4 +1,5 @@
 <?php
+/* databaseInterestsService by Johannes Neuhaus */
 class DatabaseInterestsService
 {
     private $database;

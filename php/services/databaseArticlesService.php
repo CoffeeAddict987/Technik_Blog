@@ -1,4 +1,5 @@
 <?php
+/* databaseArticlesService by Johannes Neuhaus */
 class DatabaseArticlesService
 {
     private $database;

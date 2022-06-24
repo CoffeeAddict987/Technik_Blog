@@ -14,7 +14,7 @@ class Endpoint {
 
     protected function setHeaders() {
         header('Content-Type: application/json');
-        header('Access-Control-Allow-Origin: http://127.0.0.1:5501');
+        header('Access-Control-Allow-Origin: http://127.0.0.1:5500');
     }
 
     //Functions to call the api
@@ -40,47 +40,38 @@ class Endpoint {
 
     //Http Response Codes; Ordered in ascending order
     protected function ok($result) {
-        echo "ok";
         $this->responseRequest(200, $result);
     }   //200
 
     protected function created($result) {
-        echo "created";
         $this->responseRequest(201, $result);
     }   //201
 
     protected function unsupportedHttpMethod() {
-        echo 'Unsupported HTTP method';
         http_response_code(400);
     }   //400
     
     protected function unauthorized() {
-        echo 'unauthorized';
         http_response_code(401);
     }   //401
     
     protected function forbidden() {
-        echo 'forbidden';
         http_response_code(403);
     }   //403
 
     protected function notFound() {
-        echo 'entity not found';
         http_response_code(404);
     }   //404
     
     protected function notAcceptable() {
-        echo 'not Acceptable';
         http_response_code(406);
     }   //406
 
     protected function duplicatedId() {
-        echo 'duplicated id';
         http_response_code(409);
     }   //409
 
     protected function requestRangeNotSatisfiable() {
-        echo 'request Range Not Satisfiable';
         http_response_code(416);
     }   //416
 

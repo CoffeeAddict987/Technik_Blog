@@ -14,69 +14,6 @@ class DatabaseCommentsEndpoint extends Endpoint
     protected function get() {
         $result = null;
         $id = $this->getQueryParameter('id');
-        $interestTags = $this->getQueryParameter('tags');
-        $quantity = $this->getQueryParameter('quantity');
-
-        //Get specific Id(s)
-        if ($id != null) {
-            $result = $this->databaseContentService->getById($id);
-            if ($result == null) {
-                // set 404 - Not Found
-                $this->notFound();
-                return;
-            }
-
-        }
-        //Get specific Amount of Articles with Interests
-        elseif ($interestTags != null && $quantity != null) {
-            $rndIds = array();
-            $amountArticles = $this->databaseContentService->amountOf();
-
-            if($quantity > $amountArticles) {
-                $this->requestRangeNotSatisfiable();
-                return;
-            }
-
-            $result = $this->databaseContentService->getByInterest($interestTags);
-            //Error Handling
-            if ($result == null) {
-                // set 404 - Not Found
-                $this->notFound();
-                return;
-            }
-            if (sizeof($result) < $quantity) {
-                // set 416 - Request Range not Satisifiable
-                $this->requestRangeNotSatisfiable();
-                return;
-            }
-
-            //Array handle to requested size
-            array_splice($result, $quantity);
-
-        }
-        //Get specific Amount of Articles without Interests
-        elseif ($interestTags == null) {
-            //fehlt noch: Kleinste id, wenn artikel löschbar sind; keine Überprüfung, ob Id exisitiert; Uniqueness
-            $rndIds = array();
-            $amountArticles = $this->databaseContentService->amountOf();
-
-            if ($amountArticles < $quantity) {
-                // set 416 - Request Range not Satisifiable
-                $this->requestRangeNotSatisfiable();
-                return;
-            }
-
-            for($i = 0; $i < $quantity; $i++) {
-                $rndIds[$i] = rand(0, $amountArticles);
-            }
-            $result = $this->databaseContentService->getById($rndIds);
-            if ($result == null) {
-                // set 404 - Not Found
-                $this->notFound();
-                return;
-            }
-
-        }
 
         $this->ok($result);
     }

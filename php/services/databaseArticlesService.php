@@ -45,7 +45,7 @@ class DatabaseArticlesService
         }
 
         //Select corresponding fields of the articles
-        $strIds = implode(" OR ", $Ids);
+        $strIds = implode(" OR articles.id =  ", $Ids);
         $query = 'SELECT articles.id, articles.title, LEFT(content.content, 500), pictures.title, pictures.path FROM ' .$this->table. '
         INNER JOIN content ON articles.content_id = content.id
         INNER JOIN pictures ON articles.picture_id = pictures.id

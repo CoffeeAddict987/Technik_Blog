@@ -9,30 +9,28 @@ class Home extends Page {
             
         });
 
-        //Probiert, aber leider nicht ganz sauber funktioniert
-        const contents = await getInterestsContent();
-        const contentElements = [];
-        console.log('render', contents);
-        const wrapper = $('<div />', { class: '' });
+    load_dynamicTags();
+        
+    }
+}
+
+
+async function load_dynamicTags(){
+    const contents = await getInterestsContent();
+    const contentElements = [];
+    console.log('render', contents);
+    const wrapper = $('<div />', { class: '' });
         contents.forEach((content, index) => {
             const contentElement = $(`<button class="tags-container btn btn-dark btn-style">` + content.name + `</button>`);
-    
-                contentElement.find('.tags-container').text(content.name);
                     if (index >= contents.length - 1) {
                         $(sectionTags).empty().append(wrapper);
                     }
-                //});
                 contentElements.push(contentElement);
             });
-            wrapper.append(contentElements);
-            // $(parentSelector).empty().append(wrapper);
-      
-            
-        
-        
-
-    }
+        wrapper.append(contentElements);
 }
+
+
 
 
 //Begin SlideShow Logic
@@ -55,6 +53,4 @@ function showSlides(n) {
     }
     slides[slideIndex - 1].style.display = "block";
 }
-
-
 //End Slideshow Logic

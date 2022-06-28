@@ -9,27 +9,31 @@ class Home extends Page {
             
         });
 
-            //Probiert, aber leider nicht ganz sauber funktioniert
-            const contents = await getInterestsContent();
-            const contentElements = [];
-            console.log('render', contents);
-            const wrapper = $('<div />', { class: '' });
-            contents.forEach((content, index) => {
-                const contentElement = $('<button />', { class: '.tegs-container' });
-                //contentElement.load('./pages/home/home.html', () => {
-                    contentElement.find('.tags-container').text(content.name);
+        //Probiert, aber leider nicht ganz sauber funktioniert
+        const contents = await getInterestsContent();
+        const contentElements = [];
+        console.log('render', contents);
+        const wrapper = $('<div />', { class: '' });
+        contents.forEach((content, index) => {
+            const contentElement = $(`<button class="tags-container btn btn-dark btn-style">` + content.name + `</button>`);
+    
+                contentElement.find('.tags-container').text(content.name);
                     if (index >= contents.length - 1) {
-                        $(testTag).empty().append(wrapper);
+                        $(sectionTags).empty().append(wrapper);
                     }
                 //});
                 contentElements.push(contentElement);
             });
             wrapper.append(contentElements);
             // $(parentSelector).empty().append(wrapper);
+      
+            
+        
         
 
     }
 }
+
 
 //Begin SlideShow Logic
 let slideIndex = 1;

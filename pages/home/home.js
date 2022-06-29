@@ -33,7 +33,7 @@ async function load_dynamicTags(){
 
 async function load_dynamicMainContent(){
     const tags = 2;             //Tag 2 entspricht dem Tag Drucker
-    const contents = await getArticlesContentByTags(tags);
+    const contents = await getArticlesContentByTags(2, tags);
     const contentElements = [];
     console.log('render', contents);
     const wrapper = $('<div />', { class: '' });

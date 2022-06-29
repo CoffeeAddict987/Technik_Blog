@@ -5,27 +5,31 @@ class Blog extends Page {
 
 
     async render(parentSelector) {
-
-        //Hier soll Zufallsgenerator für die ID hin
-        const id = 1;
-        const contents = await getArticlesContentById(id); //Erster Artikel
+        const tag = randomIntFromInterval(1, 9);             
+        const quantity = 1;
+        const contents = await getArticlesContentByTags(quantity, tag);
         const contentElements = [];
-        console.log('render', contents);
+        console.log('render', tag , contents);
         const wrapper = $('<div />', { class: 'database-content-wrapper' });
-
-        const contentElement = $('<div />', { class: 'database-content' });
-            contentElement.load('./pages/databaseContent/databaseContent.html', () => {
-                contentElement.find('.title2').text(contents.title);
-                contentElement.find('.text2').text(contents.content);
-                $(parentSelector).empty().append(wrapper);
+        contents.forEach((content, index) => {
+            const contentElement = $('<div />', { class: 'database-content' });
+            contentElement.load('./pages/Blog/blog.html', () => {
+                contentElement.find('.title').text(content.title);
+                contentElement.find('.sectionPicture').append($(`<img class="picture" src="` + content.path + `">`));
+                contentElement.find('.text').text(content.content);
+                if (index >= contents.length - 1) {
+                    $(parentSelector).empty().append(wrapper);
+                }
             });
             contentElements.push(contentElement);
-            wrapper.append(contentElements);
-
-        
-    
+        });
+        wrapper.append(contentElements);
+        // $(parentSelector).empty().append(wrapper);
     }
 
     
 }
 
+    function randomIntFromInterval(min, max) { // min and max included 
+        return Math.floor(Math.random() * (max - min + 1) + min)
+    }

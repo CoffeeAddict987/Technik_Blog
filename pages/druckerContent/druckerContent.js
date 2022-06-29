@@ -4,8 +4,9 @@ class DruckerContent extends Page {
     }
     
         async render(parentSelector) {
-        const tags = 2;             //Tag 2 entspricht dem Tag Drucker
-        const contents = await getArticlesContentByTags(tags);
+        const tag = 2;             //Tag 2 entspricht dem Tag Drucker
+        const quantity = 2;        //Entspricht 2 Artikel
+        const contents = await getArticlesContentByTags(quantity, tag);
         const contentElements = [];
         console.log('render', contents);
         const wrapper = $('<div />', { class: 'database-content-wrapper' });

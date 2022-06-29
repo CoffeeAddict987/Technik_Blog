@@ -9,9 +9,9 @@ async function getArticlesContentById(id) {
     return result;
 }
 
-async function getArticlesContentByTags(tag) {
+async function getArticlesContentByTags(quantity, tag) {
     // const response = await fetch(`${baseUrlArticles}?id=${id}`);
-    const response = await fetch('' + baseUrlArticles + '?id&quantity=2&tags=' + tag); // equivalent
+    const response = await fetch('' + baseUrlArticles + '?id&quantity=' + quantity + '&tags=' + tag); // equivalent
     const result = await response.json();
     return result;
 }

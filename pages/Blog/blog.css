@@ -1,13 +1,18 @@
-.text2{
+.text{
     color: black;
     border: solid 2px;
     text-align: center;
   
 }
 
-.title2{
+.title{
     border: solid 2px;
     text-align: center;
+}
+
+.sectionPicture{
+    width: 50%;
+    margin-left: 25%; 
 }
 
 .database-content-wrapper {

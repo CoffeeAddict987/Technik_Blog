@@ -10,7 +10,7 @@ class Home extends Page {
         });
 
     load_dynamicTags();
-        
+    load_dynamicMainContent();
     }
 }
 
@@ -31,6 +31,28 @@ async function load_dynamicTags(){
 }
 
 
+async function load_dynamicMainContent(){
+    const tags = 2;             //Tag 2 entspricht dem Tag Drucker
+    const contents = await getArticlesContentByTags(tags);
+    const contentElements = [];
+    console.log('render', contents);
+    const wrapper = $('<div />', { class: '' });
+        contents.forEach((content, index) => {
+            const contentElement = $(`<tr class="blog-element">
+            <td class="blog-element-picture">
+                <div class="blogtitel-table">` + content.title + ` </div>
+                <img src="`+ content.path + `"></td>
+            <td class="blog-element-text">
+                <p>` + content.content + `</p>
+            </td>
+            </tr>`);
+                    if (index >= contents.length - 1) {
+                        $(tableMainContent).empty().append(wrapper);
+                    }
+                contentElements.push(contentElement);
+            });
+        wrapper.append(contentElements);
+}
 
 
 //Begin SlideShow Logic

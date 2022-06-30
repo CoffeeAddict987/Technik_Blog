@@ -14,7 +14,7 @@ function navigatePage(id) {
     const pages = {
         home: new Home(),
         blog: new Blog(),
-        databaseContent: new DatabaseContent(),
+        computerContent: new ComputerContent(),
         druckerContent: new DruckerContent(),
         user: new User(),
     };
@@ -22,7 +22,7 @@ function navigatePage(id) {
 }
 
 function registerPages() {
-    const pages = ['home', 'blog', 'databaseContent', 'druckerContent','footer','navigation','user'];
+    const pages = ['home', 'blog', 'computerContent', 'druckerContent','footer','navigation','user'];
     const links = pages.map((c) => $(`<script src="pages/${c}/${c}.js"></script>`));
     const stylesheets = pages.map((c) => $(`<link rel="stylesheet" href="pages/${c}/${c}.css">`));
     $('head').prepend(links, stylesheets);

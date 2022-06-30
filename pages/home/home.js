@@ -11,6 +11,7 @@ class Home extends Page {
 
     load_dynamicTags();
     load_dynamicMainContent();
+    responsiveDesignHome();
     }
 }
 
@@ -53,7 +54,6 @@ async function load_dynamicMainContent(){
             });
         wrapper.append(contentElements);
 }
-
 
 //Begin SlideShow Logic
 let slideIndex = 1;

@@ -1,4 +1,4 @@
-/*CSS für Navigationsleisten*/
+/*CSS for navbar*/
 * {
   box-sizing: border-box;
 }
@@ -95,15 +95,15 @@
   background-color: white;
   }
   
-/* Rechtes Logo CSS-Daten*/
+/*right logo*/
 .nav-img{
     width: 15%;
     height: 15%;
     float: right;
 }
-/* ------- Ende Haupt css */
+/* ------- end main css */
 
-/* Hier alles für Nav-Dropdown Elemente */
+/* nav-dropdown elements */
   .dropdown {
     position: relative;
     display: inline-block;
@@ -125,9 +125,9 @@
   }
   
   .dropdown:hover .dropdown-content {display: block;}
-  /*--------- Ende CSS Nav-Dropdown*/
+  /*--------- end CSS nav-dropdown*/
   
-/* Uhrzeit, Suche*/
+/* time, search*/
 #nav-second{
   list-style: none;
   width: 100%;
@@ -152,7 +152,7 @@
   text-decoration: none;
   color: white;
 }
-/*-------- Ende Uhrzeit, Suche*/
+/*-------- end time, search*/
 
 
 /* Navigation Registierung und Login Form*/

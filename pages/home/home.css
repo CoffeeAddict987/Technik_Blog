@@ -11,29 +11,29 @@ max-width: 100%;
 }
 
 #tableMainContent{
-  padding-top: 3%;          /*margin macht hier Probleme*/
+  padding-top: 3%;          
   padding-bottom: 3%;
 }
 
 .column-content{
-  width: 38.2%;             /*Goldener Schnitt*/
+  width: 38.2%;             /*golden ratio*/
   text-align: center;
   padding-bottom: 80px;
 }
 
 .column-picture{
-  width: 61.8%;             /*Goldener Schnitt*/
+  width: 61.8%;             /*golden ratio*/
   text-align: center;
   padding: 0%;
 }
 
-#title{
+.slidebarTitle{
   font-size: 200%;
   margin: 10%;
   margin-bottom: 20px;
 }
 
-#author{
+.slidebarAuthor{
   font-style: italic;
 }
 
@@ -100,10 +100,18 @@ from {opacity: 0.7}
 to {opacity: 1}
 }
 
-/*Responisve Design */
-@media only screen and (max-width: 300px) {
-  .column-content{
+@media only screen and (max-width: 600px) {
+  .column-picture{
     display: none;
+  }
+
+  .prev, .next {
+    font-size: 20px;
+    padding: 5px;
+  }
+
+  .slidebarTitle{
+    font-size: 25px;
   }
 }
 /*Ende Sildebar*/
@@ -132,6 +140,15 @@ to {opacity: 1}
   background-color: white;
   
 }
+
+@media only screen and (max-width: 600px) {
+  .blog-element-text{
+    display: none;
+  }
+
+
+}
+
 
 /*---------- Ende Textboxen für Blog Einträge */
 .btn-style {

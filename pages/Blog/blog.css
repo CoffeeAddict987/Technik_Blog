@@ -1,26 +1,5 @@
-.text{
-    color: black;
-    border: solid 2px;
-    text-align: center;
-  
-}
-
-.title{
-    border: solid 2px;
-    text-align: center;
-}
-
-.sectionPicture{
+.blogPicture{
     width: 50%;
     margin-left: 25%; 
 }
 
-.database-content-wrapper {
-    border: solid 4px brown;
-
-}
-
-.database-content {
-    border: solid 4px pink;
-    width: 100%;
-}

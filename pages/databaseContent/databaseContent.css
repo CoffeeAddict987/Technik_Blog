@@ -1,21 +1,5 @@
-.text2{
-    color: black;
-    border: solid 2px;
-    text-align: center;
-  
+.computerPicture{
+    width: 50%;
+    margin-left: 25%; 
 }
 
-.title2{
-    border: solid 2px;
-    text-align: center;
-}
-
-.database-content-wrapper {
-    border: solid 4px brown;
-
-}
-
-.database-content {
-    border: solid 4px pink;
-    width: 100%;
-}

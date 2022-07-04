@@ -11,7 +11,6 @@ class Home extends Page {
 
     load_dynamicTags();
     load_dynamicMainContent();
-    responsiveDesignHome();
     }
 }
 

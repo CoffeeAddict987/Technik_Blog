@@ -1,0 +1,1 @@
+Use only pictures with 2:1 scale

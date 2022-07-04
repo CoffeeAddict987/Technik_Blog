@@ -13,9 +13,9 @@ class Blog extends Page {
         contents.forEach((content, index) => {
             const contentElement = $('<div />', { class: 'database-content' });
             contentElement.load('./pages/Blog/blog.html', () => {
-                contentElement.find('.blogTitle').text(content.title);
-                contentElement.find('.blogPicture').append($(`<img class="blogImg" src="` + content.path + `">`));
-                contentElement.find('.blogText').text(content.content);
+                contentElement.find('.articlesTitle').text(content.title);
+                contentElement.find('.articlesPicture').append($(`<img class="articlesImg" src="` + content.path + `">`));
+                contentElement.find('.articlesText').text(content.content);
                 if (index >= contents.length - 1) {
                     $(parentSelector).empty().append(wrapper);
                 }

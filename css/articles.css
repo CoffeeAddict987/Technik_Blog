@@ -1,20 +1,21 @@
-.computerTitle .blogTitle{
+.articlesTitle{
     padding-top: 5px;
     padding-left: 20px;
+    padding-right: 20px;
 }
 
-.computerPicture{
+.articlesPicture{
     width: 50%;
     margin-left: 25%; 
 }
 
-.computerImg{
+.articlesImg{
     border-radius: 5%;
     margin-top: 3%;
     margin-bottom: 4%;
 }
 
-.computerText{
+.articlesText{
     margin-left: 3%;
     margin-right: 3%;
     margin-bottom: 4%;

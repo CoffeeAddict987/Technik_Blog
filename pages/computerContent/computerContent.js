@@ -13,9 +13,9 @@ class ComputerContent extends Page {
         contents.forEach((content, index) => {
             const contentElement = $('<div />', { class: 'database-content' });
             contentElement.load('./pages/computerContent/computerContent.html', () => {
-                contentElement.find('.computerTitle').text(content.title);
-                contentElement.find('.computerPicture').append($(`<img class="computerImg" src="` + content.path + `">`));
-                contentElement.find('.computerText').text(content.content);
+                contentElement.find('.articlesTitle').text(content.title);
+                contentElement.find('.articlesPicture').append($(`<img class="articlesImg" src="` + content.path + `">`));
+                contentElement.find('.articlesText').text(content.content);
                 if (index >= contents.length - 1) {
                     $(parentSelector).empty().append(wrapper);
                 }

@@ -13,9 +13,9 @@ class DruckerContent extends Page {
         contents.forEach((content, index) => {
             const contentElement = $('<div />', { class: 'database-content' });
             contentElement.load('./pages/druckerContent/druckerContent.html', () => {
-                contentElement.find('.druckerTitle').text(content.title);
-                contentElement.find('.druckerPicture').append($(`<img class="druckerImg" src="` + content.path + `">`));
-                contentElement.find('.druckerText').text(content.content);
+                contentElement.find('.articlesTitle').text(content.title);
+                contentElement.find('.articlesPicture').append($(`<img class="articlesImg" src="` + content.path + `">`));
+                contentElement.find('.articlesText').text(content.content);
                 if (index >= contents.length - 1) {
                     $(parentSelector).empty().append(wrapper);
                 }

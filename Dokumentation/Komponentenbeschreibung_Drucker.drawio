@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-07-04T09:22:15.555Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" etag="c15_kZsPSa6mgXJgELFc" version="20.0.4" type="github">
+<mxfile host="app.diagrams.net" modified="2022-07-04T09:29:20.478Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" etag="g8gfZDs2dYgO12rLaCAQ" version="20.0.4" type="github">
   <diagram id="GPVNlUdv42vTJCBi7Wxd" name="Page-1">
     <mxGraphModel dx="1463" dy="1917" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -40,7 +40,7 @@
         <mxCell id="AQ-8HOtOhwurITKGxNNY-11" value="databaseArticles.php" style="swimlane;" vertex="1" parent="1">
           <mxGeometry x="355" y="-980" width="200" height="200" as="geometry" />
         </mxCell>
-        <mxCell id="AQ-8HOtOhwurITKGxNNY-12" value="Get 2 article with tag 2*" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="AQ-8HOtOhwurITKGxNNY-11">
+        <mxCell id="AQ-8HOtOhwurITKGxNNY-12" value="Get 2 articles with tag 1*" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="AQ-8HOtOhwurITKGxNNY-11">
           <mxGeometry x="30" y="90" width="140" height="40" as="geometry" />
         </mxCell>
         <mxCell id="AQ-8HOtOhwurITKGxNNY-13" value="database Tabelle" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
@@ -49,7 +49,7 @@
         <mxCell id="AQ-8HOtOhwurITKGxNNY-14" value="&lt;i&gt;Ordner bzgl. Frontend&lt;/i&gt;: /Technik_Blog/pages/&lt;b&gt;druckerContent&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="85" y="-660" width="350" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="AQ-8HOtOhwurITKGxNNY-15" value="*tag 2 is equivalent to tag &quot;Drucker&quot;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="AQ-8HOtOhwurITKGxNNY-15" value="*tag 1 is equivalent to tag &quot;Computer&quot;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="75" y="-630" width="230" height="30" as="geometry" />
         </mxCell>
         <mxCell id="AQ-8HOtOhwurITKGxNNY-16" value="GET" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="AQ-8HOtOhwurITKGxNNY-10" target="AQ-8HOtOhwurITKGxNNY-12">

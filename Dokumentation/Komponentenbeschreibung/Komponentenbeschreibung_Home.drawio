@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-07-05T19:20:48.584Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" etag="n7DswC3NyuCvUA9vww0-" version="20.0.4" type="github">
+<mxfile host="app.diagrams.net" modified="2022-07-05T19:22:15.696Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" etag="xJcq35niWAeX-WI60klx" version="20.0.4" type="github">
   <diagram id="F-mWfHKr3n5SSRair65e" name="Page-1">
     <mxGraphModel dx="1171" dy="1692" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -70,19 +70,19 @@
         <mxCell id="esbDd7-VKIpy32mCGEpp-1" value="articlesxinterest Tabelle" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="620" y="-1000" width="90" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="esbDd7-VKIpy32mCGEpp-2" value="content Tabelle" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="esbDd7-VKIpy32mCGEpp-2" value="articles Tabelle" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="750" y="-1040" width="70" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="esbDd7-VKIpy32mCGEpp-3" value="content Tabelle" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="esbDd7-VKIpy32mCGEpp-3" value="interests Tabelle" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="750" y="-960" width="70" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="esbDd7-VKIpy32mCGEpp-4" value="content Tabelle" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="esbDd7-VKIpy32mCGEpp-4" value="articles Tabelle" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="620" y="-830" width="70" height="60" as="geometry" />
         </mxCell>
         <mxCell id="esbDd7-VKIpy32mCGEpp-5" value="content Tabelle" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="750" y="-870" width="70" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="esbDd7-VKIpy32mCGEpp-6" value="content Tabelle" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="esbDd7-VKIpy32mCGEpp-6" value="picture Tabelle" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="750" y="-790" width="70" height="60" as="geometry" />
         </mxCell>
         <mxCell id="esbDd7-VKIpy32mCGEpp-7" value="JOIN" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="esbDd7-VKIpy32mCGEpp-4" target="esbDd7-VKIpy32mCGEpp-5">

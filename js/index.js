@@ -23,7 +23,7 @@ function navigatePage(id) {
 
 function registerPages() {
     const pages = ['home', 'blog', 'computerContent', 'druckerContent','footer','navigation','user'];
-    const pages_withCSS = ['home', 'navigation', 'user']
+    const pages_withCSS = ['home', 'navigation', 'user', 'footer']
     const links = pages.map((c) => $(`<script src="pages/${c}/${c}.js"></script>`));
     const stylesheets = pages_withCSS.map((c) => $(`<link rel="stylesheet" href="pages/${c}/${c}.css">`));
     $('head').prepend(links, stylesheets);
